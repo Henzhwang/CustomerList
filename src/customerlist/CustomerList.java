@@ -36,8 +36,8 @@ public class CustomerList {
        {
            try
            {
-               customersNum = Integer.parseInt(JOptionPane.showInputDialog("How many" 
-               + "customers do you want to inpuut today?"));
+               customersNum = Integer.parseInt(JOptionPane.showInputDialog("How many " 
+               + "customers do you want to input today?"));
            }
            catch(Exception e)
            {
@@ -46,9 +46,9 @@ public class CustomerList {
            break;
        }
        
-       for (int i = 1; i< customersNum; i++)
+       for (int i = 0; i< customersNum; i++)
        {
-           JOptionPane.showMessageDialog(null,"Time to InPut:");
+           JOptionPane.showMessageDialog(null,"Time to InPut");
            JOptionPane.showMessageDialog(null,"Customer" + (i + 1) + " :");
            
            name = JOptionPane.showInputDialog("What is the name of the customer ?");
@@ -57,34 +57,31 @@ public class CustomerList {
            
            while (true)
            {
-               posCod = JOptionPane.showInputDialog("What is the customer's postal code ?");
+               posCod = JOptionPane.showInputDialog("What is the customer's postal code ?" + "\nNote:No Space needed!");
                
                if (Character.isLetter(posCod.charAt(0)) && Character.isDigit(posCod.charAt(1))
                && Character.isLetter(posCod.charAt(2)) && Character.isDigit(posCod.charAt(3))
                && Character.isLetter(posCod.charAt(4)) && Character.isDigit(posCod.charAt(5)))
                        {
                             JOptionPane.showMessageDialog(null, "Thanks for inputting "
-                                    + "customers throuh our software\n We promise this "
+                                    + "customers throuh our software\n\n We promise this "
                                     + "info will not leak or be used!");
                        }
                else
                {
                    JOptionPane.showMessageDialog(null,"Please enter the correct format of postal code!");
                }
+               break;
            }
            
-           fileOut.println("Name: " + name +"\nAddress: " + address + "Province: " + province
-                            + "\nPostalCode: " +posCod);
+           fileOut.println("Name: " + name);
+           fileOut.println("\nAddress: " + address);
+           fileOut.println("\nProvince: " +province);       
+           fileOut.println("\nPostal Code: " +posCod); 
            
-           fileOut.println();
+           fileOut.println("---------------------------------");
        }
            fileOut.close();
        }
        
     }
-    
-    
-    
-    
-    
-}
